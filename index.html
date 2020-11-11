@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    <h1>hello zhihu</h1>
+    <div class="container">
+        <div class="top" id="dmList">
+            <video controls src="connie.mp4"></video>
+        </div>
+        <div class="bot">
+            <!-- 显示弹幕的数量 -->
+            <div class="danmu-num">500条弹幕</div>
+            <!-- 颜色选择器，用来设置弹幕的颜色 -->
+            <div class="danmu-color">
+                <!-- input 的type=colo就是颜色选择器 -->
+                <input type="color" id="textColor">
+            </div>
+            <!-- 弹幕输入框，获取用户的输入 -->
+            <div class="danmu-input">
+                <input type="text" id="text">
+            </div>
+            <!-- 发送按钮，点击之后发送弹幕 -->
+            <div class="danmu-btn"  onclick="sendDanmu()">发送弹幕</div>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
 </body>
 </html>
