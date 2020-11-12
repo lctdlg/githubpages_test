@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./css/index.css">
+    <meta charset="utf-8" />
+    <title>Tic Tac Toe 井字游戏</title>
+    <link rel="stylesheet" href="./css/index.css" />
 </head>
 <body>
+    <h1>Tic Tac Toe 井字游戏</h1>
     <div class="container">
-        <div class="top" id="dmList">
-            <video controls src="connie.mp4"></video>
+       <!-- 游戏面板（棋盘） -->
+      <div id="bord" class="game-board x">
+        <div class="row">
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
         </div>
-        <div class="bot">
-            <!-- 显示弹幕的数量 -->
-            <div class="danmu-num">500条弹幕</div>
-            <!-- 颜色选择器，用来设置弹幕的颜色 -->
-            <div class="danmu-color">
-                <!-- input 的type=colo就是颜色选择器 -->
-                <input type="color" id="textColor">
-            </div>
-            <!-- 弹幕输入框，获取用户的输入 -->
-            <div class="danmu-input">
-                <input type="text" id="text">
-            </div>
-            <!-- 发送按钮，点击之后发送弹幕 -->
-            <div class="danmu-btn"  onclick="sendDanmu()">发送弹幕</div>
+        <div class="row">
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
         </div>
+        <div class="row">
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+        </div>
+      </div>
+
+      <!-- 游戏获胜信息面板 -->
+      <div id="message" class="game-message">
+        <p id="winner">X 赢了！</p>
+        <button id="restart">重新开始</button>
+      </div>
     </div>
-    <script src="./js/index.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
