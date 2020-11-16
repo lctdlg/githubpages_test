@@ -1,38 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Tic Tac Toe 井字游戏</title>
-    <link rel="stylesheet" href="./css/index.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地球模式</title>
+    <style type="text/css">
+        body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+        </style>
+        <script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=jbIBAYShGFGbQiChyMG2dTIgBzDixKoD"></script>
 </head>
 <body>
-    <h1>Tic Tac Toe 井字游戏</h1>
-    <div class="container">
-       <!-- 游戏面板（棋盘） -->
-      <div id="bord" class="game-board x">
-        <div class="row">
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-        </div>
-        <div class="row">
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-        </div>
-        <div class="row">
-          <div class="cell"></div>
-          <div class="cell"></div>
-          <div class="cell"></div>
-        </div>
-      </div>
-
-      <!-- 游戏获胜信息面板 -->
-      <div id="message" class="game-message">
-        <p id="winner">X 赢了！</p>
-        <button id="restart">重新开始</button>
-      </div>
-    </div>
-    <script src="./index.js"></script>
+    <div id="allmap"></div>
+    <script>
+      // GL版命名空间为BMapGL
+	var map = new BMapGL.Map("allmap");    // 创建Map实例
+	map.centerAndZoom(new BMapGL.Point(118.5, 27.5), 5);  // 初始化地图,设置中心点坐标和地图级别
+	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+	map.setMapType(BMAP_EARTH_MAP);      // 设置地图类型为地球模式
+    </script>
+    
 </body>
 </html>
