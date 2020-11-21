@@ -1,155 +1,161 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <meta name="renderer" content="webkit">
-    <meta name="author" content="mengkun">
-    <meta name="generator" content="KodCloud">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
-    
-    <!-- 强制移动设备以app模式打开页面(即在移动设备下全屏，仅支持部分浏览器) -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="full-screen" content="yes"><!--UC强制全屏-->
-    <meta name="browsermode" content="application"><!--UC应用模式-->
-    <meta name="x5-fullscreen" content="true"><!--QQ强制全屏-->
-    <meta name="x5-page-mode" content="app"><!--QQ应用模式-->
-    
-    <title>MKOnlinePlayer v2.4</title>
-    <meta name="description" content="一款开源的基于网易云音乐api的在线音乐播放器。具有音乐搜索、播放、下载、歌词同步显示、个人音乐播放列表同步等功能。"/>
-    <meta name="keywords" content="孟坤播放器,在线音乐播放器,MKOnlinePlayer,网易云音乐,音乐api,音乐播放器源代码"/>
-    
-    <!-- 不支持IE8及以下版本浏览器 -->
-    <!--[if lte IE 8]>
-        <script>window.location.href="plugns/killie/"</script>
-    <![endif]--> 
-    
-    <!-- favicon图标 -->
-    <link rel="shortcut icon" href="favicon.ico">
-    
-    <!-- jQuery文件 -->
-    <script src="js/jquery.min.js"></script>
-    
-    <!-- 播放器样式表文件 -->
-    <link rel="stylesheet" type="text/css" href="css/player.css">
-    
-    <!-- 小屏幕样式修复 -->
-    <link rel="stylesheet" type="text/css" href="css/small.css">
-    
-    <!-- 滚动条美化样式文件 -->
-    <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css">
-    
-    <!-- layer弹窗插件样式文件 -->
-    <link rel="stylesheet" href="plugns/layer/skin/default/layer.css?v=3.0.2302" id="layuicss-skinlayercss">
-</head>
-<body>
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=favicon.ico><style type=text/css>@keyframes hourglass-spin {
+      0% {
+        transform: rotate(180deg) scale(0.4);
+      }
 
-<div id="blur-img"></div>
+      10% {
+        transform: rotate(360deg) scale(0.4);
+      }
 
-<!-- 头部logo -->
-<div class="header">
-    <div class="logo" title="Version 2.4; Based on Meting; Powered by Mengkun">
-        ♫ MKOnlinePlayer
-    </div>
-</div>  <!--class="header"-->
+      50% {
+        transform: rotate(360deg) scale(0.4);
+      }
 
-<!-- 中间主体区域 -->
-<div class="center">
-    <div class="container">
-        <div class="btn-bar">
-            <!-- tab按钮区 -->
-            <div class="btn-box" id="btn-area">
-                <span class="btn" data-action="player" hidden>播放器</span>
-                <span class="btn" data-action="playing" title="正在播放列表">正在播放</span>
-                <span class="btn" data-action="sheet" title="音乐播放列表">播放列表</span>
-                <span class="btn" data-action="search" title="点击搜索音乐">歌曲搜索</span>
-            </div>
-        </div>  <!--class="btn-bar"-->
-        
-        <div class="data-area">
-            <!--歌曲歌单-->
-            <div id="sheet" class="data-box" hidden></div>
-            
-            <!--音乐播放列表-->
-            <div id="main-list" class="music-list data-box"></div>
-        </div>  <!--class="data-area"-->
-        
-        <!-- 右侧封面及歌词展示 -->
-        <div class="player" id="player">
-            <!--歌曲封面-->
-            <div class="cover">
-                <img src="images/player_cover.png" class="music-cover" id="music-cover">
-            </div>
-            <!--滚动歌词-->
-            <div class="lyric">
-                <ul id="lyric"></ul>
-            </div>
-            <div id="music-info" title="点击查看歌曲信息"></div>
-        </div>
-    </div>  <!--class="container"-->
-</div>  <!--class="center"-->
+      60% {
+        transform: rotate(540deg) scale(0.4);
+      }
 
-<!-- 播放器底部区域 -->
-<div class="footer">
-    <div class="container">
-        <div class="con-btn">
-            <a href="javascript:;" class="player-btn btn-prev" title="上一首"></a>
-            <a href="javascript:;" class="player-btn btn-play" title="暂停/继续"></a>
-            <a href="javascript:;" class="player-btn btn-next" title="下一首"></a>
-			<a href="javascript:;" class="player-btn btn-order" title="循环控制"></a>
-        </div>  <!--class="con-btn"-->
-        
-        <div class="vol">
-            <div class="quiet">
-                <a href="javascript:;" class="player-btn btn-quiet" title="静音"></a>
-            </div>
-            <div class="volume">
-                <div class="volume-box">  
-                    <div id="volume-progress" class="mkpgb-area"></div>
-                </div>
-            </div>
-        </div>  <!--class="footer"-->
-        
-        <div class="progress">
-            <div class="progress-box">  
-                <div id="music-progress" class="mkpgb-area"></div>
-            </div>
-        </div>  <!--class="progress"-->
-    </div>  <!--class="container"-->
-</div>  <!--class="footer"-->
+      100% {
+        transform: rotate(540deg) scale(0.4)
+      }
+    }
 
-<!-- layer弹窗插件 -->
-<script src="plugns/layer/layer.js"></script>
+    @keyframes hourglass-sand {
+      0% {
+        background-position: 0 250px;
+      }
 
-<!-- 播放器数据加载模块 -->
-<script src="js/ajax.js"></script>
+      50% {
+        background-position: 0 0;
+      }
 
-<!-- 播放器歌词解析模块 -->
-<script src="js/lyric.js"></script>
+      100% {
+        background-position: 0 -250px;
+      }
+    }
 
-<!-- 音乐列表配置 -->
-<script src="js/musicList.js"></script>
+    @keyframes hourglass-stream {
+      0% {
+        top: 290px;
+        opacity: 0;
+      }
 
-<!-- 封装函数及ui交互模块 -->
-<script src="js/functions.js"></script>
+      10% {
+        opacity: 1;
+      }
 
-<!-- 播放器主体功能模块 -->
-<script src="js/player.js"></script>
+      49.9% {
+        top: 290px;
+        opacity: 1;
+      }
 
-<!-- 滚动条美化插件 -->
-<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      50% {
+        top: 20px;
+        opacity: 0;
+      }
 
-<!-- 背景模糊化插件 -->
-<script src="js/background-blur.min.js"></script>
+      60% {
+        opacity: 1;
+      }
 
-<!-- 站长统计代码 -->
-<span style="display: none">
-    <!-- 各类统计代码都放在这里…… -->
-    
-</span>
+      100% {
+        top: 20px;
+        opacity: 1;
+      }
+    }
 
-</body>
-</html>
+    /* All other browsers */
+
+    #first-loading {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hourglass {
+      position: relative;
+      width: 280px;
+      height: 560px;
+      animation: hourglass-spin 8s ease-in-out 0s infinite;
+    }
+
+    .hourglass::before,
+    .hourglass::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0;
+      width: 240px;
+      height: 250px;
+      background: #ccc;
+      border: 20px solid #ccc;
+      border-top-left-radius: 150px 250px;
+      border-top-right-radius: 150px 250px;
+    }
+
+    .hourglass::before {
+      top: 0;
+      transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+    }
+
+    .hourglass .hourglass-stand::after,
+    .hourglass .hourglass-stand::before {
+      position: absolute;
+      content: '';
+      z-index: 3;
+      left: -40px;
+      bottom: 0;
+      width: 360px;
+      height: 50px;
+      background: #ccc;
+    }
+
+    .hourglass .hourglass-stand::before {
+      top: 0;
+    }
+
+    .hourglass .hourglass-sand::before,
+    .hourglass .hourglass-sand::after {
+      position: absolute;
+      content: '';
+      z-index: 2;
+      left: 20px;
+      bottom: 20px;
+      width: 240px;
+      height: 250px;
+      background: linear-gradient(yellow 0%, yellow 50%, #fff 50%, #eee 100%);
+      background-size: 300px 500px;
+      border-top-left-radius: 130px 230px;
+      border-top-right-radius: 130px 230px;
+      animation: hourglass-sand 8s ease-in-out 0s infinite;
+    }
+
+    .hourglass .hourglass-sand::before {
+      top: 20px;
+      transform: rotate(180deg);
+      animation-delay: -4s;
+      -webkit-transform: rotate(180deg);
+    }
+
+    .hourglass .hourglass-stream {
+      position: absolute;
+      z-index: 2;
+      left: 130px;
+      width: 10px;
+      height: 250px;
+      opacity: 0;
+      background: yellow;
+      animation: hourglass-stream 8s linear 0.6s infinite;
+      box-shadow: 0 3px 3px yellow,
+        0 3px 5px yellow, 0 3px 3px yellow,
+        0 4px 45px yellow, 0 3px 3px yellow,
+        0 3px 30px yellow, 0 3px 3px yellow,
+        0 3px 3px yellow, 0 3px 3px yellow,
+        0 3px 31px yellow, 0 3px 3px yellow;
+    }</style><title>vue-typescript-music</title><link href=css/addSong.abbb1889.css rel=prefetch><link href=css/album.8f36b7cb.css rel=prefetch><link href=css/chunk-2db40295.2d70a5ae.css rel=prefetch><link href=css/comment.4f38975c.css rel=prefetch><link href=css/deleteSong.ebac0016.css rel=prefetch><link href=css/editSongDesc.e8800819.css rel=prefetch><link href=css/editSongName.58faee43.css rel=prefetch><link href=css/editSongTags.6ba5f1b1.css rel=prefetch><link href=css/email.9714b005.css rel=prefetch><link href=css/find.62f1d11e.css rel=prefetch><link href=css/login.140c994a.css rel=prefetch><link href=css/loginPhone.89b1646c.css rel=prefetch><link href=css/my.bfb594e3.css rel=prefetch><link href=css/phone.d51b57c7.css rel=prefetch><link href=css/playHistory.8da68238.css rel=prefetch><link href=css/radio.0e61d11c.css rel=prefetch><link href=css/rankingList.75d1f961.css rel=prefetch><link href=css/register.5e64bcd8.css rel=prefetch><link href=css/search.f7b8504b.css rel=prefetch><link href=css/searchResult.c41ebca4.css rel=prefetch><link href=css/singer.0ecf0730.css rel=prefetch><link href=css/singerDetail.14bc7a3f.css rel=prefetch><link href=css/star.e664844f.css rel=prefetch><link href=css/updateSong.ac5e4643.css rel=prefetch><link href=css/video.453a5437.css rel=prefetch><link href=css/watchNewMusic.e8f066a2.css rel=prefetch><link href=js/addSong.183c98a6.js rel=prefetch><link href=js/album.09cf4030.js rel=prefetch><link href=js/chunk-2db40295.76589eb7.js rel=prefetch><link href=js/comment.589e7134.js rel=prefetch><link href=js/deleteSong.2d1ab090.js rel=prefetch><link href=js/editSongDesc.f71ae799.js rel=prefetch><link href=js/editSongName.bece668e.js rel=prefetch><link href=js/editSongTags.288fcc4b.js rel=prefetch><link href=js/email.d68d7c2a.js rel=prefetch><link href=js/find.9cdc5492.js rel=prefetch><link href=js/login.9b2cf8d1.js rel=prefetch><link href=js/loginPhone.cb1c9bee.js rel=prefetch><link href=js/my.2a575a31.js rel=prefetch><link href=js/phone.a4d5c9db.js rel=prefetch><link href=js/playHistory.938e36d1.js rel=prefetch><link href=js/radio.ebbcf2a7.js rel=prefetch><link href=js/rankingList.88daa4e3.js rel=prefetch><link href=js/register.808d556d.js rel=prefetch><link href=js/search.e3e92df6.js rel=prefetch><link href=js/searchResult.8c2fc3ca.js rel=prefetch><link href=js/singer.121cbb7a.js rel=prefetch><link href=js/singerDetail.3a4d05e2.js rel=prefetch><link href=js/star.85aa3558.js rel=prefetch><link href=js/updateSong.656d9fe2.js rel=prefetch><link href=js/video.fddc0422.js rel=prefetch><link href=js/watchNewMusic.02e0777c.js rel=prefetch><link href=css/app.54a2839e.css rel=preload as=style><link href=css/chunk-vendors.da541e03.css rel=preload as=style><link href=js/app.88de2aec.js rel=preload as=script><link href=js/chunk-vendors.ee4a36dd.js rel=preload as=script><link href=css/chunk-vendors.da541e03.css rel=stylesheet><link href=css/app.54a2839e.css rel=stylesheet></head><body><noscript><strong>We're sorry but vue-typescript-music doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=first-loading><div class=hourglass><div class=hourglass-stand></div><div class=hourglass-sand></div><div class=hourglass-stream></div></div></div><div id=app></div><script src=js/chunk-vendors.ee4a36dd.js></script><script src=js/app.88de2aec.js></script></body></html>
