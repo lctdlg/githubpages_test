@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404</title>
+    <title></title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
-    <h1>404</h1>
+    <header>
+        <section>
+            <form action="javascript:postaction()" id="form">
+                <label for="title">ToDoList</label>
+                <input type="text" id="title" name="title" placeholder="添加ToDo" required="required"
+                    autocomplete="off" />
+            </form>
+        </section>
+    </header>
+    <section>
+        <h2 onclick="save()">正在进行 <span id="todocount"></span></h2>
+        <ol id="todolist" class="demo-box">
+        </ol>
+        <h2>已经完成 <span id="donecount"></span></h2>
+        <ul id="donelist">
+        </ul>
+    </section>
+    <footer>
+        王陆陆 <a href="javascript:clear();">清除所有</a>
+    </footer>
+    <script type="text/javascript" src="./js/index.js"></script>
 </body>
+</body>
+
 </html>
